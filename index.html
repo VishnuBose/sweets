@@ -75,6 +75,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			 </div>
 		     <div class="clearfix"> </div>
 	  </div>
+          
 	  <div class="header_bottom">
 	   <div class="logo">
 		  <h1><a href="index.html"><span class="m_1">Sweets</span>@</a><span class="style1"><a href="index.html">Home</a></span></h1>
@@ -249,6 +250,42 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="clearfix"> </div>
 			</ul>
 			</div>-->
+          <div id="map" style="width:40%;height:400px;float:right;border:2px solid black;opacity=0.2"></div>
+
+<script>
+   
+function myMap() {
+    
+   new Promise(function(resolve,reject){
+       navigator.geolocation.getCurrentPosition(function(ans){
+    var lat=ans.coords.latitude;
+    var long=ans.coords.longitude; 
+           resolve({lat:lat,long:long});
+        })
+   }).then(function(data){
+       console.log(data);
+       
+var myCenter = new google.maps.LatLng(data.lat,data.long);
+  var mapCanvas = document.getElementById("map");
+  var mapOptions = {center: myCenter, zoom: 20};
+  var map = new google.maps.Map(mapCanvas, mapOptions);
+  var marker = new google.maps.Marker({position:myCenter});
+  marker.setMap(map);
+   })  
+    
+    
+    
+//    alert(lat);
+
+}
+</script>
+<!--<script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap">
+    </script>-->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBynP7FO4CFD2WtDlO42Cht1Ns5vT4bz1M&callback=myMap"></script>
+
+          
+          
 	        <div class="clearfix">     <div class="middle_content">
     	<div class="container">
             <br>

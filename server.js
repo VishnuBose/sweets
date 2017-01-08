@@ -16,7 +16,7 @@ app.get('/', function (req, res) {
 
 app.get('/submit', function (req, res) {
      
- res.send(req.query.firstname+" "+req.query.lastname+" ");
+ res.send(req.query.firstname+" "+req.query.lastname+" "+req.query.email +" ");
     var MongoClient = require('mongodb').MongoClient;
  
 var myCollection;
@@ -24,8 +24,8 @@ var db = MongoClient.connect('mongodb://sweetsathome:123456@ds145188.mlab.com:45
     if(err)
         throw err;
     console.log("connected to the mongoDB !");
-    myCollection = db.collection('test_collection');
-     myCollection.insert({fname:req.query.firstname, lname:req.query.lastname , description: "learn more than everyone"}, function(err, result) {
+    myCollection = db.collection('costomer-details');
+     myCollection.insert({fname:req.query.firstname, lname:req.query.lastname , mail:req.query.email, passwd:req.query.pass, description: "learn more than everyone"}, function(err, result) {
     if(err)
         throw err;
  

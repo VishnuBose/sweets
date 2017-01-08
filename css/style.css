@@ -749,6 +749,24 @@ x:-o-prefocus, .lb-overlay img {
   display: block;
   line-height: 2em;
 }
+
+.myFile {
+  position: relative;
+  overflow: hidden;
+  float: left;
+  clear: left;
+}
+.myFile input[type="file"] {
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  opacity: 0;
+  font-size: 100px;
+  filter: alpha(opacity=0);
+  cursor: pointer;
+}
+
 .account-top input[type="text"], .account-top input[type="password"]  {
   padding: 0.7em;
   width: 85%;

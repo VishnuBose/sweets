@@ -91,10 +91,46 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     </div>
     <div class="account-in">
    	  <div class="container">
-          <img src="image/ladu.jpg" style="float:right">
+          <!--<img src="image/ladu.jpg" style="float:right">-->
    	     <form action="submit" method="get"> 
 		   <div class="register-top-grid">
 			<h2>SHOP INFORMATION</h2>
+               
+<div id="map" style="width:40%;height:400px;float:right;border:2px solid black"></div>
+
+<script>
+   
+function myMap() {
+    
+   new Promise(function(resolve,reject){
+       navigator.geolocation.getCurrentPosition(function(ans){
+    var lat=ans.coords.latitude;
+    var long=ans.coords.longitude; 
+           resolve({lat:lat,long:long});
+        })
+   }).then(function(data){
+       console.log(data);
+       
+var myCenter = new google.maps.LatLng(data.lat,data.long);
+  var mapCanvas = document.getElementById("map");
+  var mapOptions = {center: myCenter, zoom: 20};
+  var map = new google.maps.Map(mapCanvas, mapOptions);
+  var marker = new google.maps.Marker({position:myCenter});
+  marker.setMap(map);
+   })  
+    
+    
+    
+//    alert(lat);
+
+}
+</script>
+<!--<script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap">
+    </script>-->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBynP7FO4CFD2WtDlO42Cht1Ns5vT4bz1M&callback=myMap"></script>
+
+               
 			 <div>
 				<p>Shop Name<label>*</label></p>
 				<input type="text" name="shopname">
@@ -128,6 +164,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	   </div>
    </div>
   
+  
+
+
+    
+    
    <div class="footer">
    	 <div class="container">
    	 	

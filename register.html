@@ -76,6 +76,54 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					 }
 
                    </script>
+               <script>
+                   
+                   
+                   
+         
+
+
+                   
+                   function costomer(){
+                      
+                       
+                       var p=document.getElementById("pass");
+                        var cp=document.getElementById("cpass");
+                        var selectvalue=$('input[name=category]:checked').val();
+                      // alert(selectvalue);
+                        if(p.value!=cp.value)
+                        {
+                            alert("password not matching");
+                            window.location.href="";
+                            
+                        }
+                      
+                       else{
+                               
+                            if(selectvalue=="buyer")
+                       alert("buyer");
+                        if(selectvalue=="seller")
+                      window.location.href='/shop-register.html';
+                       
+                       $.get( "/submit", function( data ) {
+ 
+                           alert( "Load was performed." );
+});
+         
+                       }
+                               
+                       
+                       
+                   }
+                   
+                    function seller(){
+                      
+                       /*alert("seller");*/
+                        /* window.location.href='/shop-register.html';*/
+                        
+                   }
+                   
+               </script>
 					<!----//search-scripts---->
 		            <div class="clearfix"> </div>
 			 </div>
@@ -91,7 +139,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     </div>
     <div class="account-in">
    	  <div class="container">
-   	     <form action="submit" method="get"> 
+   	     <form  > 
 		   <div class="register-top-grid">
 			<h2>PERSONAL INFORMATION</h2>
 			 <div>
@@ -104,15 +152,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			 </div>
 			 <div>
 				 <span>Email Address<label>*</label></span>
-				 <input type="text"> 
+				 <input type="text" name="email"> 
 			 
 			 </div>
 			 <div class="clearfix"> </div>
 			   <a class="news-letter" href="#">
 			   </a>
-               <input id="sell" class="active" 
-                   type="radio" name="category" onclick="return Checkbox1_onclick()" title="category" /> 
-               buyer<input id="sell" type="radio" name="category" title="category" /> seller<br />
+              <input type="radio" name="category" id="sell"  value="seller" />
+               seller <br>
+              <input type="radio" name="category" id="buyer"  value="buyer" />
+               buyer
+               <br />
                <br />
            </div>
 		     <div class="register-bottom-grid">
@@ -120,11 +170,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <p>&nbsp;</p>
 					 <div>
 						<span>Password*</span>
-						<input type="password">
+						<input type="password" id="pass">
 					<!-- </div>
 					 <div>-->
 						<span>Confirm Password<label>*</label></span>
-						<input type="password">
+						<input type="password" id="cpass" >
 					 </div>
 					 <div class="clearfix"> </div>
 			 </div>
@@ -132,15 +182,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="clearfix"> </div>
 		<div class="col-md-7 account-top">
 		  
-			   <input type="submit" value="submit">
+			   <input type="button"  onclick="costomer();  checkPasswordMatch(); " value="submit">
 			   <div class="clearfix"> </div>
 		</div>
 		   </form>
 	   </div>
    </div>
-   <div class="map">
+   <!--<div class="map">
 	   <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d3150859.767904157!2d-96.62081048651531!3d39.536794757966845!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1408111832978"> </iframe>
-   </div>
+   </div>-->
    <div class="footer">
    	 <div class="container">
    	 	
